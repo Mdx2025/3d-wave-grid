@@ -19,20 +19,18 @@ export default class Stage {
             waveWidth: 3.0, // Gaussian half-width of the wave ring (world units)
             waveJitter: 0.2,
             waveMaxHeight: 0.4,
-            colorBase: "#ffffff",
-            colorHigh: "#0055ff",
+            colorBase: "#0b1814",
+            colorHigh: "#baff69",
         };
-        this.scene.background = new THREE.Color(
-            this.params.colorBase,
-        ).multiplyScalar(0.5); // half of uColorBase for a more subtle background
+        this.scene.background = new THREE.Color("#050807");
 
         this.lightingParams = {
-            ambientColor: "#ffffff",
-            ambientIntensity: 0.5,
-            directionalColor: "#ffffff",
-            directionalIntensity: 4.0,
-            directional2Color: "#ffffff",
-            directional2Intensity: 1.0,
+            ambientColor: "#6e8d80",
+            ambientIntensity: 0.72,
+            directionalColor: "#d8ffe9",
+            directionalIntensity: 2.8,
+            directional2Color: "#baff69",
+            directional2Intensity: 0.9,
         };
 
         // Physical world-unit footprint of the grid (centre-to-centre span).

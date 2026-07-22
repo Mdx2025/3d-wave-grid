@@ -3,97 +3,97 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>3D Wave Grid</title>
+        <meta
+            name="description"
+            content="Franky is a Hong Kong-based creative developer building interactive digital experiences with code, motion, and 3D."
+        />
+        <meta name="theme-color" content="#050807" />
+        <title>Franky — Creative Developer</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="./style.css" />
     </head>
     <body>
-        <div class="overlay">
-            <div class="top-nav">
-                <div class="nav-logo">
-                    <a href="#">Franky.dev</a>
-                </div>
-                <div class="nav-content">
-                    <div class="nav-links">
-                        <a href="https://arkon.digital" class="animated-link">
-                            <span class="link-content">
-                                <span class="link-text">Projects</span>
-                                <span class="link-text">Projects</span>
-                            </span>
-                        </a>
-                        <a href="https://arkon.digital" class="animated-link">
-                            <span class="link-content">
-                                <span class="link-text">About</span>
-                                <span class="link-text">About</span>
-                            </span>
-                        </a>
-                        <a href="https://arkon.digital" class="animated-link">
-                            <span class="link-content">
-                                <span class="link-text">Contact</span>
-                                <span class="link-text">Contact</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="nav-socials">
-                        <a href="https://x.com/FrankyHungDev" class="animated-link">
-                            <span class="link-content">
-                                <span class="link-text">X (Twitter)</span>
-                                <span class="link-text">X (Twitter)</span>
-                            </span>
-                        </a>
-                        <a href="https://www.instagram.com/franky_hung/" class="animated-link">
-                            <span class="link-content">
-                                <span class="link-text">Instagram</span>
-                                <span class="link-text">Instagram</span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="nav-time">
-                        <p id="local-time"></p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-section">
-                <div class="spacer"></div>
-                <h1>
-                    Franky is a Hong Kong-based creative developer exploring how
-                    to blend design and technology to create memorable
-                    experiences.
-                    <span class="secondary">
-                        His work focuses clarity, function, and emotion — always
-                        built on inspiration and curiosity.
-                    </span>
-                </h1>
-                <div class="spacer-back"></div>
-            </div>
-            <div class="bottom-bar">
-                <div class="bar-location">
-                    <p>Based in Hong Kong</p>
-                </div>
-                <div class="bar-projects">
-                    <a href="https://arkon.digital" class="animated-link">
-                        <span class="link-content">
-                            <span class="link-text">Check all projects<img class="arrow-icon" src="./arrow.svg" alt="Arrow" /></span>
-                            <span class="link-text">Check all projects<img class="arrow-icon" src="./arrow.svg" alt="Arrow" /></span>
-                        </span>
-                    </a>
-                </div>
-                <div class="bar-availability">
-                    <a href="mailto:franky@arkon.digital" class="animated-link">
-                        <span class="link-content">
-                            <span class="link-text">Contact Me<img class="arrow-icon" src="./arrow.svg" alt="Arrow" /></span>
-                            <span class="link-text">Contact Me<img class="arrow-icon" src="./arrow.svg" alt="Arrow" /></span>
-                        </span>
-                    </a>
-                </div>
-            </div>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <div class="visual-layer" aria-hidden="true">
+            <canvas class="webgl"></canvas>
+            <div class="canvas-scrim"></div>
+            <div class="grain"></div>
         </div>
-        <canvas class="webgl"></canvas>
+
+        <div class="site-shell">
+            <header class="top-nav" data-reveal>
+                <a class="brand" href="/" aria-label="Franky home">
+                    <span class="brand-mark" aria-hidden="true"></span>
+                    <span>FRANKY / DEV</span>
+                </a>
+
+                <nav class="nav-links" aria-label="Primary navigation">
+                    <a href="https://arkon.digital">Selected work</a>
+                    <a href="https://www.instagram.com/franky_hung/">Instagram</a>
+                    <a href="https://x.com/FrankyHungDev">X</a>
+                </nav>
+
+                <div class="nav-status" aria-label="Availability and local time">
+                    <span class="availability"><span class="status-dot" aria-hidden="true"></span>Available</span>
+                    <time id="local-time" datetime="">HKT</time>
+                </div>
+            </header>
+
+            <main id="main-content" class="hero">
+                <section class="hero-copy-block" aria-labelledby="hero-title">
+                    <p class="micro-label" data-reveal>Creative developer · Hong Kong</p>
+                    <h1 id="hero-title" class="hero-title" data-reveal>
+                        Digital experiences<br />
+                        <span>with a pulse.</span>
+                    </h1>
+                    <div class="hero-lower" data-reveal>
+                        <p class="hero-copy">
+                            Franky blends code, motion, and 3D into interactive
+                            work that feels clear, tactile, and alive.
+                        </p>
+                        <div class="hero-actions" aria-label="Main actions">
+                            <a class="primary-action" href="https://arkon.digital">
+                                Explore projects
+                                <span aria-hidden="true">↗</span>
+                            </a>
+                            <a class="text-action" href="mailto:franky@arkon.digital">Start a conversation</a>
+                        </div>
+                    </div>
+                </section>
+
+                <aside class="instrument-panel" aria-label="Interactive field status" data-reveal>
+                    <div class="instrument-head">
+                        <span>FIELD / 001</span>
+                        <span class="live-state"><span aria-hidden="true"></span>LIVE</span>
+                    </div>
+                    <div class="signal-readout" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="instrument-copy">
+                        <p>Interactive wave field</p>
+                        <p class="muted">Move through the canvas to send a signal across the grid.</p>
+                    </div>
+                    <dl class="instrument-specs">
+                        <div><dt>Engine</dt><dd>Three.js</dd></div>
+                        <div><dt>Input</dt><dd>Pointer</dd></div>
+                        <div><dt>Mode</dt><dd>Real time</dd></div>
+                    </dl>
+                </aside>
+            </main>
+
+            <footer class="bottom-rail" data-reveal>
+                <p>22.3193° N / 114.1694° E</p>
+                <p class="interaction-hint"><span aria-hidden="true">↘</span> Move cursor to disturb the field</p>
+                <p>WebGL experiment · 2026</p>
+            </footer>
+        </div>
+
         <script type="module" src="./script.js"></script>
     </body>
 </html>

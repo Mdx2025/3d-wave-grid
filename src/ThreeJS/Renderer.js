@@ -25,10 +25,10 @@ export default class Renderer {
             antialias: true,
         });
         this.instance.toneMapping = THREE.ACESFilmicToneMapping;
-        this.instance.toneMappingExposure = 1.95;
+        this.instance.toneMappingExposure = 1.28;
         this.instance.shadowMap.enabled = true;
         this.instance.shadowMap.type = THREE.PCFShadowMap;
-        this.instance.setClearColor("#808080");
+        this.instance.setClearColor("#050807");
         this.instance.setSize(this.sizes.width, this.sizes.height);
         this.instance.setPixelRatio(this.sizes.pixelRatio);
     }
@@ -39,9 +39,9 @@ export default class Renderer {
         this.composer.addPass(this.renderPass);
 
         this.vignetteRGBShiftPass = new ShaderPass(VignetteRGBShiftShader);
-        this.vignetteRGBShiftPass.uniforms.shiftAmount.value = 0.005; // Adjust the intensity of the RGB shift
-        this.vignetteRGBShiftPass.uniforms.vignetteRadius.value = 0.3; // Adjust where the effect starts (0.0 to 1.0)
-        this.vignetteRGBShiftPass.uniforms.vignetteSoftness.value = 0.3; // Adjust the falloff smoothness of the effect
+        this.vignetteRGBShiftPass.uniforms.shiftAmount.value = 0.0015;
+        this.vignetteRGBShiftPass.uniforms.vignetteRadius.value = 0.42;
+        this.vignetteRGBShiftPass.uniforms.vignetteSoftness.value = 0.38;
         this.composer.addPass(this.vignetteRGBShiftPass);
 
         this.outputPass = new OutputPass();
