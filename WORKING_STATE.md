@@ -4,11 +4,11 @@
 - task_id: `3d-wave-grid-clean-redesign-20260721`
 - owner: `Animus`
 - thread_or_session: `discord:channel:1481383253100466420`
-- updated_at: `2026-07-21T23:08:17-04:00`
+- updated_at: `2026-07-21T23:12:00-04:00`
 - repository: `/home/clawd/projects/3d-wave-grid`
 - branch: `experiment/clean-modern-redesign`
 - target_route: `/`
-- status: `validation`
+- status: `done`
 
 ## Scope
 
@@ -52,12 +52,12 @@
 
 ## Execution
 
-- current_phase: `validation complete; preparing branch delivery and public preview`
-- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; production build passed; responsive, typography, contrast, keyboard/focus, reduced-motion, semantic, runtime-error, and no-JavaScript fallback checks passed.`
+- current_phase: `done`
+- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; production build passed; responsive, typography, contrast, keyboard/focus, reduced-motion, semantic, runtime-error, and no-JavaScript fallback checks passed; branch pushed; public preview verified.`
 - locked_decisions: `Keep Vite/Three.js/GSAP; dark instrument palette; one acid-lime signal accent; static content remains usable without canvas.`
 - open_decisions: `None required for the experimental branch.`
 - blockers: `None.`
-- next_exact_action: `Commit and push the experimental branch, then start and verify the public preview tunnel.`
+- next_exact_action: `Marcelo reviews the public preview and decides whether to iterate, open a PR, or discard the experiment.`
 
 ## Handoffs
 
@@ -71,7 +71,7 @@
 - [x] Delivery Quality Gate passed with computed typography, measured contrast, keyboard/focus, reduced-motion, responsive, automated-audit, runtime-error, and build evidence
 - [x] Lint/typecheck/build/tests pass as applicable
 - [x] Browser/layout/visual QA passes when applicable
-- [ ] Final commit/deploy state recorded
+- [x] Final commit/deploy state recorded
 
 ## Validation Evidence
 
@@ -85,6 +85,8 @@
 - `2026-07-21T23:04:00-04:00` — `automated-a11y` — `project Playwright semantic audit: zero violations` — `/home/clawd/3d-wave-grid-qa.json`
 - `2026-07-21T23:04:00-04:00` — `runtime-errors` — `zero console errors, page errors, and failed requests across tested viewports; JavaScript-disabled fallback retains title/action` — `/home/clawd/3d-wave-grid-qa.json`
 - `2026-07-21T23:07:00-04:00` — `canonical layout QA` — `4/4 checks passed on mobile and desktop; no overflow or runtime errors` — `/home/clawd/3d-wave-grid-layout-mobile.json`, `/home/clawd/3d-wave-grid-layout-desktop.json`
+- `2026-07-21T23:09:00-04:00` — `branch delivery` — `commit af85a02 pushed to origin/experiment/clean-modern-redesign` — `GitHub branch`
+- `2026-07-21T23:12:00-04:00` — `public preview` — `origin and tunnel active; public readiness 200 with identity matched; explicit HTTPS smoke 200 text/html` — `https://unable-drum-posted-relate.trycloudflare.com`
 
 Required evidence labels: `build`, `typography`, `contrast`, `responsive`, `keyboard-focus`, `reduced-motion`, `automated-a11y`, `runtime-errors`.
 
