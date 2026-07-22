@@ -4,7 +4,7 @@
 - task_id: `3d-wave-grid-clean-redesign-20260721`
 - owner: `Animus`
 - thread_or_session: `discord:channel:1481383253100466420`
-- updated_at: `2026-07-21T23:21:00-04:00`
+- updated_at: `2026-07-21T23:28:00-04:00`
 - repository: `/home/clawd/projects/3d-wave-grid`
 - branch: `experiment/clean-modern-redesign`
 - target_route: `/`
@@ -53,7 +53,7 @@
 ## Execution
 
 - current_phase: `done`
-- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; heading collision root cause identified; title converted into two structural lines with an explicit gap and non-overlapping line-height; production build and three-viewport geometry validation passed.`
+- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; heading collision fixed; field-panel missing lateral inset corrected with one responsive panel spacing token; build and three-viewport geometry validation passed.`
 - locked_decisions: `Keep Vite/Three.js/GSAP; dark instrument palette; one acid-lime signal accent; static content remains usable without canvas.`
 - open_decisions: `None required for the experimental branch.`
 - blockers: `None.`
@@ -88,6 +88,7 @@
 - `2026-07-21T23:09:00-04:00` — `branch delivery` — `commit af85a02 pushed to origin/experiment/clean-modern-redesign` — `GitHub branch`
 - `2026-07-21T23:12:00-04:00` — `public preview` — `origin and tunnel active; public readiness 200 with identity matched; explicit HTTPS smoke 200 text/html` — `https://unable-drum-posted-relate.trycloudflare.com`
 - `2026-07-21T23:21:00-04:00` — `heading geometry regression` — `title line gaps: 5.84px mobile, 8px intermediate, 9.33px desktop; overlap false at all three viewports; no horizontal overflow, offscreen elements, runtime errors, or failed requests` — `/home/clawd/3d-wave-grid-qa.json`, `/home/clawd/3d-wave-grid-mobile.png`, `/home/clawd/3d-wave-grid-final.png`
+- `2026-07-21T23:28:00-04:00` — `field-panel inset regression` — `left/right inset 16px at mobile and intermediate, 21.59px at desktop; all four content anchors aligned; specs overflow false; build passed; zero viewport overflow, offscreen elements, runtime errors, or failed requests` — `/home/clawd/3d-wave-grid-qa.json`, `/home/clawd/3d-wave-grid-mobile.png`, `/home/clawd/3d-wave-grid-final.png`
 
 Required evidence labels: `build`, `typography`, `contrast`, `responsive`, `keyboard-focus`, `reduced-motion`, `automated-a11y`, `runtime-errors`.
 

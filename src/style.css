@@ -294,6 +294,7 @@ a:focus-visible {
 }
 
 .instrument-panel {
+    --panel-inset: clamp(16px, 1.5vw, 22px);
     align-self: end;
     border-top: 1px solid var(--line-strong);
     border-bottom: 1px solid var(--line);
@@ -305,7 +306,7 @@ a:focus-visible {
 .instrument-head,
 .instrument-copy,
 .instrument-specs {
-    padding: 14px 0;
+    padding: 14px var(--panel-inset);
 }
 
 .instrument-head {
@@ -333,7 +334,7 @@ a:focus-visible {
     align-items: end;
     height: 66px;
     gap: 5px;
-    padding: 16px 0 12px;
+    padding: 16px var(--panel-inset) 12px;
     border-bottom: 1px solid var(--line);
 }
 
