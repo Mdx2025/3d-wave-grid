@@ -4,11 +4,11 @@
 - task_id: `3d-wave-grid-clean-redesign-20260721`
 - owner: `Animus`
 - thread_or_session: `discord:channel:1481383253100466420`
-- updated_at: `2026-07-21T23:28:00-04:00`
+- updated_at: `2026-07-21T23:46:00-04:00`
 - repository: `/home/clawd/projects/3d-wave-grid`
 - branch: `experiment/clean-modern-redesign`
 - target_route: `/`
-- status: `done`
+- status: `publishing`
 
 ## Scope
 
@@ -52,12 +52,12 @@
 
 ## Execution
 
-- current_phase: `done`
-- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; heading collision fixed; field-panel missing lateral inset corrected with one responsive panel spacing token; build and three-viewport geometry validation passed.`
+- current_phase: `publishing`
+- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; heading collision fixed; field-panel missing lateral inset corrected; build and three-viewport geometry validation passed; Playwright produced one 4:8 motion capture and two distinct website stills.`
 - locked_decisions: `Keep Vite/Three.js/GSAP; dark instrument palette; one acid-lime signal accent; static content remains usable without canvas.`
 - open_decisions: `None required for the experimental branch.`
 - blockers: `None.`
-- next_exact_action: `Marcelo reviews the refreshed public preview and decides whether another iteration is needed.`
+- next_exact_action: `Prepare the approved media derivatives, package the source, and publish the component to HorizonX Code / Hero.`
 
 ## Handoffs
 
