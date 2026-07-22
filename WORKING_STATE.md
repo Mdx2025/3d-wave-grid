@@ -4,11 +4,11 @@
 - task_id: `3d-wave-grid-clean-redesign-20260721`
 - owner: `Animus`
 - thread_or_session: `discord:channel:1481383253100466420`
-- updated_at: `2026-07-21T23:46:00-04:00`
+- updated_at: `2026-07-21T23:53:00-04:00`
 - repository: `/home/clawd/projects/3d-wave-grid`
 - branch: `experiment/clean-modern-redesign`
 - target_route: `/`
-- status: `publishing`
+- status: `done`
 
 ## Scope
 
@@ -52,12 +52,12 @@
 
 ## Execution
 
-- current_phase: `publishing`
-- completed: `Repo/branch verified; baseline captured; direction locked; full UI and WebGL palette implemented; heading collision fixed; field-panel missing lateral inset corrected; build and three-viewport geometry validation passed; Playwright produced one 4:8 motion capture and two distinct website stills.`
+- current_phase: `done`
+- completed: `Repo/branch verified; redesign and responsive fixes validated; Playwright produced one 4:8 motion capture and two distinct website stills; production derivatives and source ZIP passed media/package validation; HorizonX product 108 published under Code / Hero with creator 42 and deliverable 95.`
 - locked_decisions: `Keep Vite/Three.js/GSAP; dark instrument palette; one acid-lime signal accent; static content remains usable without canvas.`
 - open_decisions: `None required for the experimental branch.`
 - blockers: `None.`
-- next_exact_action: `Prepare the approved media derivatives, package the source, and publish the component to HorizonX Code / Hero.`
+- next_exact_action: `Marcelo reviews the live HorizonX product page.`
 
 ## Handoffs
 
@@ -89,6 +89,9 @@
 - `2026-07-21T23:12:00-04:00` — `public preview` — `origin and tunnel active; public readiness 200 with identity matched; explicit HTTPS smoke 200 text/html` — `https://unable-drum-posted-relate.trycloudflare.com`
 - `2026-07-21T23:21:00-04:00` — `heading geometry regression` — `title line gaps: 5.84px mobile, 8px intermediate, 9.33px desktop; overlap false at all three viewports; no horizontal overflow, offscreen elements, runtime errors, or failed requests` — `/home/clawd/3d-wave-grid-qa.json`, `/home/clawd/3d-wave-grid-mobile.png`, `/home/clawd/3d-wave-grid-final.png`
 - `2026-07-21T23:28:00-04:00` — `field-panel inset regression` — `left/right inset 16px at mobile and intermediate, 21.59px at desktop; all four content anchors aligned; specs overflow false; build passed; zero viewport overflow, offscreen elements, runtime errors, or failed requests` — `/home/clawd/3d-wave-grid-qa.json`, `/home/clawd/3d-wave-grid-mobile.png`, `/home/clawd/3d-wave-grid-final.png`
+- `2026-07-21T23:47:00-04:00` — `HorizonX capture` — `Playwright captured two 1920x1080 stills and a 720x1440 source video; delivery MP4 is H.264, muted, 7.8 seconds` — `scripts/capture-horizonx.cjs`, `/home/clawd/.openclaw/media/outbound/3d-wave-grid-horizonx/artifacts/horizonx/`
+- `2026-07-21T23:50:00-04:00` — `HorizonX media/package` — `cover 1440x1080; gallery stills 1920x1080; card video 960x720; source ZIP integrity passed; all six CDN assets returned 200 with correct content types` — `https://cdn.horizonx.so/digital-wave-field-hero/`
+- `2026-07-21T23:53:00-04:00` — `HorizonX publication` — `product 108; Code / Hero category_ref 46; creator 42; is_template false; published true; gallery count 3; deliverable 95; public page 200; anonymous deliverables 401 expected; Playwright confirmed vertical 720x1440 media and no horizontal overflow` — `https://horizonx.so/explore/digital-wave-field-hero`
 
 Required evidence labels: `build`, `typography`, `contrast`, `responsive`, `keyboard-focus`, `reduced-motion`, `automated-a11y`, `runtime-errors`.
 
