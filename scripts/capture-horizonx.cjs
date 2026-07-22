@@ -3,7 +3,11 @@ const path = require("path");
 const { chromium } = require("/home/clawd/.openclaw/skills/playwright-browser-automation/node_modules/playwright");
 
 const baseUrl = process.argv[2] || process.env.PREVIEW_BASE_URL;
-const outputDir = path.resolve(process.argv[3] || "./artifacts/horizonx");
+const outputDir = path.resolve(
+    process.argv[3] || process.env.HORIZONX_OUTPUT_DIR || "./artifacts/horizonx",
+);
+const stillsOnly = process.env.HORIZONX_STILLS_ONLY === "1";
+const coverOnly = process.env.HORIZONX_COVER_ONLY === "1";
 
 if (!baseUrl) {
     console.error("Usage: node scripts/capture-horizonx.cjs <url> [output-dir]");
@@ -24,38 +28,94 @@ async function movePointer(page, points, durationMs) {
     fs.mkdirSync(outputDir, { recursive: true });
     const browser = await chromium.launch({ headless: true });
 
-    const stillContext = await browser.newContext({
-        viewport: { width: 1920, height: 1080 },
+    const coverContext = await browser.newContext({
+        viewport: { width: 1440, height: 1080 },
         deviceScaleFactor: 1,
     });
-    const stillPage = await stillContext.newPage();
-    await stillPage.goto(baseUrl, { waitUntil: "networkidle" });
-    await stillPage.waitForTimeout(1200);
-    await stillPage.screenshot({
-        path: path.join(outputDir, "wave-field-calm.png"),
+    const coverPage = await coverContext.newPage();
+    await coverPage.goto(baseUrl, { waitUntil: "networkidle" });
+    await coverPage.waitForTimeout(1200);
+    await movePointer(coverPage, [
+        { x: 160, y: 780 },
+        { x: 360, y: 610 },
+        { x: 580, y: 820 },
+        { x: 820, y: 570 },
+        { x: 1060, y: 780 },
+        { x: 1260, y: 610 },
+        { x: 980, y: 860 },
+        { x: 700, y: 650 },
+    ], 2200);
+    await coverPage.waitForTimeout(30);
+    await coverPage.screenshot({
+        path: path.join(outputDir, "wave-field-cover-4x3-v2.png"),
         fullPage: false,
+    });
+    await coverContext.close();
+
+    if (coverOnly) {
+        await browser.close();
+        console.log(JSON.stringify({
+            baseUrl,
+            outputDir,
+            cover: path.join(outputDir, "wave-field-cover-4x3-v2.png"),
+        }, null, 2));
+        return;
+    }
+
+    const galleryContext = await browser.newContext({
+        viewport: { width: 2400, height: 1350 },
+        deviceScaleFactor: 1,
+    });
+    const galleryPage = await galleryContext.newPage();
+    await galleryPage.goto(baseUrl, { waitUntil: "networkidle" });
+    await galleryPage.waitForTimeout(2800);
+    await galleryPage.screenshot({
+        path: path.join(outputDir, "wave-field-calm-master-v2.png"),
+        fullPage: false,
+    });
+    await galleryPage.screenshot({
+        path: path.join(outputDir, "wave-field-calm-16x3-v2.png"),
+        clip: { x: 0, y: 600, width: 2400, height: 450 },
     });
 
-    await movePointer(stillPage, [
-        { x: 460, y: 710 },
-        { x: 720, y: 520 },
-        { x: 1030, y: 660 },
-        { x: 1320, y: 470 },
-        { x: 1540, y: 690 },
+    await movePointer(galleryPage, [
+        { x: 520, y: 860 },
+        { x: 880, y: 650 },
+        { x: 1260, y: 870 },
+        { x: 1640, y: 620 },
+        { x: 2040, y: 850 },
     ], 1800);
-    await stillPage.waitForTimeout(220);
-    await stillPage.screenshot({
-        path: path.join(outputDir, "wave-field-disturbed.png"),
+    await galleryPage.waitForTimeout(220);
+    await galleryPage.screenshot({
+        path: path.join(outputDir, "wave-field-disturbed-master-v2.png"),
         fullPage: false,
     });
-    await stillContext.close();
+    await galleryPage.screenshot({
+        path: path.join(outputDir, "wave-field-disturbed-16x3-v2.png"),
+        clip: { x: 0, y: 600, width: 2400, height: 450 },
+    });
+    await galleryContext.close();
+
+    if (stillsOnly) {
+        await browser.close();
+        console.log(JSON.stringify({
+            baseUrl,
+            outputDir,
+            cover: path.join(outputDir, "wave-field-cover-4x3-v2.png"),
+            stills: [
+                path.join(outputDir, "wave-field-calm-16x3-v2.png"),
+                path.join(outputDir, "wave-field-disturbed-16x3-v2.png"),
+            ],
+        }, null, 2));
+        return;
+    }
 
     const videoDir = path.join(outputDir, "playwright-video");
     const videoContext = await browser.newContext({
-        viewport: { width: 720, height: 1440 },
+        viewport: { width: 1080, height: 2160 },
         recordVideo: {
             dir: videoDir,
-            size: { width: 720, height: 1440 },
+            size: { width: 1080, height: 2160 },
         },
     });
     const videoPage = await videoContext.newPage();
@@ -73,8 +133,8 @@ async function movePointer(page, points, durationMs) {
                 pointerEvents: "none",
                 transform: "translate(-50%, -50%)",
                 boxShadow: "0 0 18px rgba(186, 255, 105, 0.7)",
-                left: "360px",
-                top: "720px",
+                left: "540px",
+                top: "1080px",
             });
             document.body.appendChild(cursor);
             window.addEventListener("pointermove", (event) => {
@@ -86,31 +146,32 @@ async function movePointer(page, points, durationMs) {
     await videoPage.goto(baseUrl, { waitUntil: "networkidle" });
     await videoPage.waitForTimeout(650);
     await movePointer(videoPage, [
-        { x: 120, y: 1060 },
-        { x: 250, y: 860 },
-        { x: 390, y: 1040 },
-        { x: 560, y: 780 },
-        { x: 620, y: 1120 },
-        { x: 430, y: 920 },
-        { x: 180, y: 1160 },
-        { x: 340, y: 800 },
-    ], 5200);
-    await videoPage.waitForTimeout(500);
+        { x: 180, y: 1590 },
+        { x: 370, y: 1290 },
+        { x: 590, y: 1560 },
+        { x: 840, y: 1170 },
+        { x: 930, y: 1680 },
+        { x: 650, y: 1380 },
+        { x: 270, y: 1740 },
+        { x: 510, y: 1200 },
+    ], 6200);
+    await videoPage.waitForTimeout(600);
 
     const recordedVideo = videoPage.video();
     await videoContext.close();
     const recordedPath = await recordedVideo.path();
-    fs.copyFileSync(recordedPath, path.join(outputDir, "wave-field-playwright.webm"));
+    fs.copyFileSync(recordedPath, path.join(outputDir, "wave-field-playwright-4x8-v2.webm"));
 
     await browser.close();
     console.log(JSON.stringify({
         baseUrl,
         outputDir,
+        cover: path.join(outputDir, "wave-field-cover-4x3-v2.png"),
         stills: [
-            path.join(outputDir, "wave-field-calm.png"),
-            path.join(outputDir, "wave-field-disturbed.png"),
+            path.join(outputDir, "wave-field-calm-16x3-v2.png"),
+            path.join(outputDir, "wave-field-disturbed-16x3-v2.png"),
         ],
-        video: path.join(outputDir, "wave-field-playwright.webm"),
+        video: path.join(outputDir, "wave-field-playwright-4x8-v2.webm"),
     }, null, 2));
 })().catch((error) => {
     console.error(error);
