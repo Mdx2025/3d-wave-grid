@@ -223,14 +223,20 @@ a:focus-visible {
 }
 
 .hero-title {
+    display: grid;
+    gap: 0.08em;
     max-width: 980px;
     font-size: clamp(64px, 8.1vw, 132px);
     font-weight: 300;
-    line-height: 0.86;
-    letter-spacing: -0.075em;
+    line-height: 0.94;
+    letter-spacing: -0.065em;
 }
 
-.hero-title span {
+.hero-title-line {
+    display: block;
+}
+
+.hero-title-muted {
     color: var(--muted);
 }
 
@@ -463,8 +469,9 @@ a:focus-visible {
 
     .hero-title {
         font-size: clamp(52px, 15vw, 76px);
-        line-height: 0.91;
-        letter-spacing: -0.065em;
+        gap: 0.1em;
+        line-height: 0.96;
+        letter-spacing: -0.055em;
     }
 
     .hero-lower {
